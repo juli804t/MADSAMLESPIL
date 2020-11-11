@@ -17,6 +17,9 @@ sprites.onDestroyed(SpriteKind.GatheringStuff, function (sprite) {
     if (SAMLEJOHN.overlapsWith(Burger4)) {
         tiles.placeOnRandomTile(SAMLEJOHN, myTiles.tile1)
     }
+    if (SAMLEJOHN.overlapsWith(Burger5)) {
+        tiles.placeOnRandomTile(SAMLEJOHN, myTiles.tile8)
+    }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.GatheringStuff, function (sprite, otherSprite) {
     tiles.placeOnRandomTile(Burger1portal, myTiles.transparency16)
@@ -32,6 +35,7 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile6, function (sprite, location
     tiles.placeOnRandomTile(SAMLEJOHN, myTiles.tile7)
 })
 let Burger1portal: Sprite = null
+let Burger5: Sprite = null
 let Burger4: Sprite = null
 let SAMLEJOHN: Sprite = null
 game.showLongText("Hello, you are playing a game made by Julius. In this game your supposed to collect food and earn points, which you can use to buy food when you're done playing! I hope you have a great time!", DialogLayout.Bottom)
@@ -125,6 +129,24 @@ Burger4 = sprites.create(img`
     . 4 5 4 5 5 4 e . . . . . . . . 
     . . 4 4 e e e . . . . . . . . . 
     `, SpriteKind.GatheringStuff)
+Burger5 = sprites.create(img`
+    . . . . . . b b b b a a . . . . 
+    . . . . b b d d d 3 3 3 a a . . 
+    . . . b d d d 3 3 3 3 3 3 a a . 
+    . . b d d 3 3 3 3 3 3 3 3 3 a . 
+    . b 3 d 3 3 3 3 3 b 3 3 3 3 a b 
+    . b 3 3 3 3 3 a a 3 3 3 3 3 a b 
+    b 3 3 3 3 3 a a 3 3 3 3 d a 4 b 
+    b 3 3 3 3 b a 3 3 3 3 3 d a 4 b 
+    b 3 3 3 3 3 3 3 3 3 3 d a 4 4 e 
+    a 3 3 3 3 3 3 3 3 3 d a 4 4 4 e 
+    a 3 3 3 3 3 3 3 d d a 4 4 4 e . 
+    a a 3 3 3 d d d a a 4 4 4 e e . 
+    . e a a a a a a 4 4 4 4 e e . . 
+    . . e e b b 4 4 4 4 b e e . . . 
+    . . . e e e e e e e e . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `, SpriteKind.GatheringStuff)
 Burger1portal = sprites.create(img`
     . . . . . f c c c c f . . . . . 
     . . c c f b b 3 3 b b f c c . . 
@@ -144,6 +166,7 @@ Burger1portal = sprites.create(img`
     . . f f f f f f f f f f f f . . 
     `, SpriteKind.Portal)
 tiles.setTilemap(tilemap`level_0`)
+tiles.placeOnRandomTile(Burger5, sprites.castle.tileDarkGrass3)
 tiles.placeOnRandomTile(Burger4, myTiles.tile10)
 tiles.placeOnRandomTile(Burger3, myTiles.tile4)
 tiles.placeOnRandomTile(Burger2, myTiles.transparency16)
