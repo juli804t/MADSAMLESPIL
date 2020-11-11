@@ -18,7 +18,7 @@ sprites.onDestroyed(SpriteKind.GatheringStuff, function (sprite) {
         tiles.placeOnRandomTile(SAMLEJOHN, myTiles.tile1)
     }
     if (SAMLEJOHN.overlapsWith(Burger5)) {
-        tiles.placeOnRandomTile(SAMLEJOHN, myTiles.tile8)
+        tiles.placeOnRandomTile(SAMLEJOHN, myTiles.tile5)
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.GatheringStuff, function (sprite, otherSprite) {
@@ -27,7 +27,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.GatheringStuff, function (sprite
     info.changeScoreBy(5)
 })
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile11, function (sprite, location) {
-    info.setScore(info.score() * 2)
+    info.setScore(info.score() * (2 / (game.runtime() / 100000)))
     pause(100)
     game.over(true)
 })
